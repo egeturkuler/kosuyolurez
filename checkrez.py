@@ -7,7 +7,7 @@ days_look_ahead = 3
 tomorrow = datetime.now().date() + timedelta(days=days_look_ahead)
 date = tomorrow.strftime("%m/%d/%Y")
 
-url = f"https://spor.kadikoy.bel.tr/Ajax/GetAreaReservationList.ashx?facilityId=2&AreaId=7&firstDayOfWeekLong={date}"
+url = f"https://spor.kadikoy.bel.tr/Ajax/GetAreaReservationList.ashx?facilityId=3&AreaId=8&firstDayOfWeekLong={date}"
 
 response = requests.get(url)
 
@@ -23,3 +23,8 @@ for listing in response.json()["programs"]:
     if listing["statu"] == 1:
         if(hour_eight in listing["hourData"]):
             print(listing["programDateFormatted"], listing["hourData"])
+        elif (hour_nine in listing["hourData"]):
+            print(listing["programDateFormatted"], listing["hourData"])
+        elif (hour_ten in listing["hourData"]):
+            print(listing["programDateFormatted"], listing["hourData"])
+        
